@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="homework:war exploded">
+    <output-path>$PROJECT_DIR$/target/homework-1.0.war</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="homework/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="homework" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:14.0.1" />
+          <element id="library" level="project" name="Maven: com.google.inject:guice:4.0-beta" />
+          <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.imgscalr:imgscalr-lib:4.2" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
