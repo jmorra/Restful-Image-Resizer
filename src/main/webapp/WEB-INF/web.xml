@@ -5,27 +5,27 @@
 <web-app>
     <display-name>Tilofy Photo Resize Service</display-name>
 
-    <!-- Setting up RESTEasy as in http://docs.jboss.org/resteasy/docs/1.0.0.GA/userguide/html/Installation_Configuration.html -->
     <context-param>
-        <param-name>resteasy.scan</param-name>
-        <param-value>true</param-value>
+        <param-name>resteasy.guice.modules</param-name>
+        <param-value>com.tilofy.guice.PhotoQueueModule</param-value>
     </context-param>
 
+    <!-- Setting up RESTEasy as in http://docs.jboss.org/resteasy/docs/3.0.4.Final/userguide/html/Guice1.html -->
     <listener>
         <listener-class>
-            org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
+            org.jboss.resteasy.plugins.guice.GuiceResteasyBootstrapServletContextListener
         </listener-class>
     </listener>
 
     <servlet>
-        <servlet-name>RESTEasy</servlet-name>
+        <servlet-name>Resteasy</servlet-name>
         <servlet-class>
             org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
         </servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>RESTEasy</servlet-name>
+        <servlet-name>Resteasy</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
 </web-app>
