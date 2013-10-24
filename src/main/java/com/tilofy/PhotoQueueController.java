@@ -13,7 +13,7 @@ public class PhotoQueueController {
     @GET
     public Response showMessage() {
 
-        String result = "Hello World2";
+        String result = "Hello World";
 
         return Response.status(200).entity(result).build();
     }
