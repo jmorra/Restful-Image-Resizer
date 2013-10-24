@@ -13,7 +13,7 @@ import java.net.URL;
 import com.tilofy.manager.Status;
 
 /**
- * This is the one controller for the image resizing.  It responds to 2 REST commands.
+ * This is the one controller for the image resizing.  It responds to 3 REST commands.
  * index -- Show a list of all the jobs and their status.
  * show -- Shows the status of the supplied job_id
  * create -- Creates a new image resizing job and redirects to the show page
@@ -28,11 +28,12 @@ public class PhotoQueueController {
         this.manager = manager;
     }
 
-    @GET
     /**
      * Index should show all the jobs and their status.
      * TODO Implement Pagination
+     * @return Response
      */
+    @GET
     public Response index() {
         String json = "JSON Parse Error";
         try {
@@ -45,6 +46,13 @@ public class PhotoQueueController {
         return getResponse(json);
     }
 
+    /**
+     * Shows the status of the job and if the job is completed, will also give an access URL
+     * for the image, if the job is completed.
+     * TODO make image URL work.
+     * @param jobID The jobID
+     * @return The Resteasy Response
+     */
     @GET
     @Path("{job_id}")
     public Response show(@PathParam("job_id") int jobID) {
@@ -57,6 +65,13 @@ public class PhotoQueueController {
         return getResponse(jsonStatus);
     }
 
+    /**
+     * This will create a processing job with a supplied URL and size.  The size must be
+     * in the format [positive_integer]x[positive_integer].
+     * @param urlString The URL to be resized
+     * @param size The new size
+     * @return The Resteasy Response
+     */
     @PUT
     public Response create(@QueryParam("url") String urlString, @QueryParam("size") String size) {
         if (urlString == null || urlString.isEmpty())
@@ -95,12 +110,22 @@ public class PhotoQueueController {
         return show(jobID);
     }
 
+    /**
+     * Converts the error string into json and returns a response.
+     * @param error The error string to pass as json
+     * @return The Resteasy Response
+     */
     private Response getErrorResponse(String error) {
         JSONStatus status = new JSONStatus();
         status.error = error;
         return getResponse(status);
     }
 
+    /**
+     * Converts the JSONStatus into json and then returns a response with that json.
+     * @param status The JSONStatus object to write
+     * @return The Resteasy Response
+     */
     private Response getResponse(JSONStatus status) {
         String json = "JSON Parse Error";
         try {
@@ -112,6 +137,11 @@ public class PhotoQueueController {
         return getResponse(json);
     }
 
+    /**
+     * Gets a response for the supplied object.
+     * @param input The object to respond with
+     * @return The Resteasy Response
+     */
     private Response getResponse(Object input) {
         return Response.status(200).entity(input).build();
     }
