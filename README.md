@@ -2,7 +2,7 @@
 This is a very simple backend service written in Java that handles image resizing.  It is designed as a toy project
 using the following libraries
 
-* JBoss 7.1.1
+* JBoss 7.1.1.Final -- Gotten from [here](http://www.jboss.org/jbossas/downloads/).  The version is important.
 * RestEasy
 * Guice
 * Guava
@@ -18,7 +18,7 @@ on your path).  This will also run the full test suite included.
 ## Deploy Instructions
 This application was written for JBoss 7.1.1.  In order to deploy, copy the `target/homework-1.0.war` file to
 `<jboss_home>/standalone/deployments`.  From there, start the JBoss server by running standalone from the
-`<jboss_home>/bin directory`.
+`<jboss_home>/bin` directory.
 
 ## Usage
 This program only has a backend and communicates via JSON.  The program responds to 4 REST commands
