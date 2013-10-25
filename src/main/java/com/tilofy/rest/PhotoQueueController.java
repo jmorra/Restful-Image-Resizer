@@ -7,7 +7,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
 import com.google.inject.Inject;
-import com.tilofy.image.ResizerFactory;
 import com.tilofy.image.Resizer;
 import com.tilofy.json.JSONStatus;
 import com.tilofy.manager.Manager;
@@ -108,9 +107,13 @@ public class PhotoQueueController {
      * @param size The new size
      * @return The Resteasy Response
      */
+    @Inject
     @POST
     @Produces("application/json")
-    public Response create(@QueryParam("url") String urlString, @QueryParam("size") String size, @Context HttpServletRequest req) {
+    public Response create(@QueryParam("url") String urlString,
+                           @QueryParam("size") String size,
+                           @Context HttpServletRequest req,
+                           Resizer resizer) {
         if (urlString == null || urlString.isEmpty())
             return getErrorResponse("Must supply URL");
         if  (size == null || size.isEmpty())
@@ -141,8 +144,8 @@ public class PhotoQueueController {
             return getErrorResponse("Not a valid URL");
         }
 
-        // TODO Figure out how to use Guice here
-        Resizer resizer = ResizerFactory.getURLResizer(url, targetWidth, targetHeight, manager);
+        resizer.setTargetImage(url);
+        resizer.setDimensions(targetWidth, targetHeight);
         int jobID = manager.submitJob(resizer);
         return show(jobID, req);
     }

@@ -2,28 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tilofy/manager/TimeoutManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tilofy/manager/ImageJobManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/tilofy/manager/ImageJobManager.java" />
+      <change type="DELETED" beforePath="C:\Tilofy\Homework\homework\src\main\java\com\tilofy\image\ResizerFactory.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/tilofy/ImageJobManagerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/tilofy/ImageJobManagerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tilofy/manager/Manager.java" afterPath="$PROJECT_DIR$/src/main/java/com/tilofy/manager/Manager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tilofy/rest/PhotoQueueController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tilofy/rest/PhotoQueueController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tilofy/guice/PhotoQueueModule.java" afterPath="$PROJECT_DIR$/src/main/java/com/tilofy/guice/PhotoQueueModule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tilofy/manager/Status.java" afterPath="$PROJECT_DIR$/src/main/java/com/tilofy/manager/Status.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tilofy/image/Resizer.java" afterPath="$PROJECT_DIR$/src/main/java/com/tilofy/image/Resizer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tilofy/image/URLResizer.java" afterPath="$PROJECT_DIR$/src/main/java/com/tilofy/image/URLResizer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/tilofy/URLResizerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/tilofy/URLResizerTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="homework.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382715148560" ignored="false" />
+    <file path="/Dummy.txt" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382715779648" ignored="false" />
     <file path="/homework_war_exploded.xml" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382570054048" ignored="false" />
     <file path="/pom.xml" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382674207172" ignored="false" />
-    <file path="/PhotoQueueController.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382679046622" ignored="false" />
+    <file path="/PhotoQueueController.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382715684875" ignored="false" />
     <file path="/a.dummy" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382676829819" ignored="false" />
     <file path="/web.xml" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382651085662" ignored="false" />
     <file path="/JSONError.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382575619588" ignored="false" />
     <file path="/fragment.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382678054086" ignored="false" />
-    <file path="/PhotoQueueModule.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382714065883" ignored="false" />
+    <file path="/PhotoQueueModule.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382715379957" ignored="false" />
     <file path="/PhotoQueueControllerTest.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382679616564" ignored="false" />
-    <file path="/Resizer.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382676160421" ignored="false" />
+    <file path="/Resizer.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382715698379" ignored="false" />
     <file path="/ThreadedResizer.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382622535338" ignored="false" />
     <file path="/ResizeRunnable.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382626766797" ignored="false" />
     <file path="/Manager.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382714550089" ignored="false" />
@@ -40,11 +40,11 @@
     <file path="$PROJECT_DIR$/../temp/homework/src/main/java/foo/guice/rest.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382638261250" ignored="false" />
     <file path="$PROJECT_DIR$/../temp/homework/src/main/java/foo/guice/rest/Controller.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382638285543" ignored="false" />
     <file path="$PROJECT_DIR$/../temp/homework/src/main/java/foo/rest/Controller.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382638316003" ignored="false" />
-    <file path="/URLResizer.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382676718840" ignored="false" />
+    <file path="/URLResizer.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382715486851" ignored="false" />
     <file path="/ManagerTest.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382640954513" ignored="false" />
-    <file path="/ImageJobManagerTest.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382714612138" ignored="false" />
+    <file path="/ImageJobManagerTest.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382715534125" ignored="false" />
     <file path="/TestSuite.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382644459500" ignored="false" />
-    <file path="/URLResizerTest.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382714917170" ignored="false" />
+    <file path="/URLResizerTest.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382715644024" ignored="false" />
     <file path="/ResizerFactory.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382676246910" ignored="false" />
     <file path="/JSONStatus.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382675598743" ignored="false" />
     <file path="/TimeoutManager.java" changelist="2df6ead3-9305-40b0-9edb-9bae5bfa5a34" time="1382715043974" ignored="false" />
@@ -112,48 +112,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ImageJobManager.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/manager/ImageJobManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="124" selection-start="2947" selection-end="2947" vertical-scroll-proportion="0.29645094">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#801#818#0" expanded="true" />
-                <element signature="e#904#921#0" expanded="true" />
-                <element signature="e#1002#1017#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Resizer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/image/Resizer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="5" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimeoutManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/manager/TimeoutManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="89" selection-start="1181" selection-end="1181" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#369#386#0" expanded="true" />
-                <element signature="e#468#483#0" expanded="true" />
-                <element signature="e#1021#1618#0" expanded="true" />
-                <element signature="e#1607#1608#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PhotoQueueController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/rest/PhotoQueueController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="63" selection-start="2462" selection-end="2462" vertical-scroll-proportion="0.0">
+            <state line="147" column="55" selection-start="4775" selection-end="4775" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -164,42 +126,22 @@
       <file leaf-file-name="ImageJobManagerTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/tilofy/ImageJobManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="5" selection-start="2298" selection-end="2298" vertical-scroll-proportion="0.0">
+            <state line="26" column="35" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1460#1477#0" expanded="true" />
+                <element signature="e#1423#1440#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="URLResizerTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="URLResizerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/tilofy/URLResizerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="23" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0">
+            <state line="47" column="23" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.3326886">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Manager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/manager/Manager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="33" selection-start="334" selection-end="351" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Status.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/manager/Status.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="58" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -207,7 +149,7 @@
       <file leaf-file-name="URLResizer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/image/URLResizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="13" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0">
+            <state line="23" column="41" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -215,10 +157,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Resizer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/image/Resizer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="63" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="PhotoQueueModule.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/guice/PhotoQueueModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="81" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
+            <state line="25" column="42" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -246,20 +197,20 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tilofy/json/JSONStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tilofy/image/Resizer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tilofy/image/ResizerFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tilofy/image/URLResizer.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tilofy/rest/PhotoQueueController.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/tilofy/PhotoQueueControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tilofy/manager/Status.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tilofy/guice/PhotoQueueModule.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/tilofy/TimeoutManagerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tilofy/manager/Manager.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/tilofy/ImageJobManagerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/tilofy/URLResizerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tilofy/manager/TimeoutManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tilofy/manager/ImageJobManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tilofy/guice/PhotoQueueModule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tilofy/image/URLResizer.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/tilofy/ImageJobManagerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tilofy/rest/PhotoQueueController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tilofy/image/Resizer.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/tilofy/URLResizerTest.java" />
       </list>
     </option>
   </component>
@@ -977,7 +928,11 @@
       <created>1382679085340</created>
       <updated>1382679085340</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added a timeout manager and tests for it.">
+      <created>1382715165003</created>
+      <updated>1382715165003</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1005,7 +960,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936978" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1020,7 +975,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936978" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32936978" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32936978" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936978" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1081,7 +1036,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a timeout manager and tests for it." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored to remove some injected dependencies." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1101,6 +1056,7 @@
     <MESSAGE value="Added a lot of comments and a few more tests." />
     <MESSAGE value="Got resteasy working and now have a way to view the images" />
     <MESSAGE value="Added a timeout manager and tests for it." />
+    <MESSAGE value="Refactored to remove some injected dependencies." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1114,15 +1070,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="27" selection-start="249" selection-end="249" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/image/ResizerFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="99" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1163,75 +1110,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/rest/PhotoQueueController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="63" selection-start="2462" selection-end="2462" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/guice/PhotoQueueModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="81" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/manager/Manager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="33" selection-start="334" selection-end="351" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/tilofy/ImageJobManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="5" selection-start="2298" selection-end="2298" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1460#1477#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/image/Resizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="5" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/image/URLResizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/manager/TimeoutManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="89" selection-start="1181" selection-end="1181" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#369#386#0" expanded="true" />
-            <element signature="e#468#483#0" expanded="true" />
-            <element signature="e#1021#1618#0" expanded="true" />
-            <element signature="e#1607#1608#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/tilofy/URLResizerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="23" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1246,6 +1127,72 @@
             <element signature="e#801#818#0" expanded="true" />
             <element signature="e#904#921#0" expanded="true" />
             <element signature="e#1002#1017#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/manager/TimeoutManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="89" selection-start="1181" selection-end="1181" vertical-scroll-proportion="0.61524165">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#369#386#0" expanded="true" />
+            <element signature="e#468#483#0" expanded="true" />
+            <element signature="e#1021#1618#0" expanded="true" />
+            <element signature="e#1607#1608#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/guice/PhotoQueueModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="42" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/tilofy/ImageJobManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="35" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1423#1440#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/image/Resizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="63" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/image/URLResizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="41" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tilofy/rest/PhotoQueueController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="55" selection-start="4775" selection-end="4775" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/tilofy/URLResizerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="23" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.3326886">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,7 +1,7 @@
 package com.tilofy;
 
 import com.tilofy.image.Resizer;
-import com.tilofy.image.ResizerFactory;
+import com.tilofy.image.URLResizer;
 import com.tilofy.manager.ImageJobManager;
 import com.tilofy.manager.Manager;
 import com.tilofy.manager.Status;
@@ -24,7 +24,7 @@ public class ImageJobManagerTest {
         manager = new ImageJobManager(new File("test"), null);
         timeoutManager.setManager(manager);
         manager.setTimeoutManager(timeoutManager);
-        resizer = ResizerFactory.getURLResizer(null, 0, 0, manager);
+        resizer = new URLResizer();
     }
 
     @After

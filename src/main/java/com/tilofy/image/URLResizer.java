@@ -1,6 +1,7 @@
 package com.tilofy.image;
 
 import com.google.common.io.Files;
+import com.google.inject.Inject;
 import org.imgscalr.Scalr;
 
 import javax.imageio.ImageIO;
@@ -18,9 +19,16 @@ public class URLResizer extends Resizer {
     protected URL url;
     protected Manager manager;
 
-    public URLResizer(URL url, int targetWidth, int targetHeight, Manager manager) {
-        super(targetWidth, targetHeight);
-        this.url = url;
+    /**
+     * We're assuming that the target here is a URL, so we can just can the image as a URL.
+     * @param image The URL of the image.
+     */
+    public void setTargetImage(Object image) {
+        this.url = (URL)image;
+    }
+
+    @Inject
+    public void setManager(Manager manager) {
         this.manager = manager;
     }
 

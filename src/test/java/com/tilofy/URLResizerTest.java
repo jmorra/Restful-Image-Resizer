@@ -1,7 +1,6 @@
 package com.tilofy;
 
-import com.tilofy.image.Resizer;
-import com.tilofy.image.ResizerFactory;
+import com.tilofy.image.URLResizer;
 import com.tilofy.manager.ImageJobManager;
 import com.tilofy.manager.Manager;
 import com.tilofy.manager.Status;
@@ -26,6 +25,7 @@ public class URLResizerTest {
     URL url;
     File resultFile;
     File resultDirectory;
+    URLResizer resizer;
 
     @Before
     public void setup() {
@@ -34,12 +34,16 @@ public class URLResizerTest {
         manager = new ImageJobManager(resultDirectory, Executors.newFixedThreadPool(1));
         timeoutManager.setManager(manager);
         manager.setTimeoutManager(timeoutManager);
+        resizer = new URLResizer();
+        resizer.setDimensions(10, 10);
+        resizer.setManager(manager);
     }
 
     @After
     public void tearDown() {
         manager = null;
         url = null;
+        resizer = null;
         if (resultFile != null && resultFile.exists())
             resultFile.delete();
         if (resultDirectory.exists())
@@ -54,7 +58,7 @@ public class URLResizerTest {
         catch (Exception e) {
             e.printStackTrace();
         }
-        Resizer resizer = ResizerFactory.getURLResizer(url, 10, 10, manager);
+        resizer.setTargetImage(url);
 
         int jobID = manager.submitJob(resizer);
         waitForResizing(jobID);
@@ -70,7 +74,7 @@ public class URLResizerTest {
         catch (Exception e) {
             e.printStackTrace();
         }
-        Resizer resizer = ResizerFactory.getURLResizer(url, 10, 10, manager);
+        resizer.setTargetImage(url);
 
         int jobID = manager.submitJob(resizer);
         waitForResizing(jobID);
@@ -86,7 +90,7 @@ public class URLResizerTest {
         catch (Exception e) {
             e.printStackTrace();
         }
-        Resizer resizer = ResizerFactory.getURLResizer(url, 10, 10, manager);
+        resizer.setTargetImage(url);
 
         int jobID = manager.submitJob(resizer);
 
@@ -108,9 +112,9 @@ public class URLResizerTest {
         catch (Exception e) {
             e.printStackTrace();
         }
-
+        resizer.setTargetImage(url);
         // Here we're trying to make a job that will take more than 1 second so we can see the timeout working
-        Resizer resizer = ResizerFactory.getURLResizer(url, 1000000000, 1000000000, manager);
+        resizer.setDimensions(1000000000, 1000000000);
 
         int jobID = manager.submitJob(resizer);
 
