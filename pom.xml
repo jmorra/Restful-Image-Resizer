@@ -4,7 +4,7 @@
     <groupId>com.tilofy</groupId>
     <artifactId>homework</artifactId>
     <packaging>war</packaging>
-    <version>1.0.war</version>
+    <version>1.0</version>
     
     <name>Tilofy Image Resize Service</name>        
     
@@ -32,8 +32,6 @@
         </dependency>
         
         <!-- Use guava if you know how -->
-        <!-- Apparently guava 15.0 doesn't play nice with JBOSS 7.1.1, so I had to downgrade.
-        This is documented here https://code.google.com/p/guava-libraries/issues/detail?id=1527 -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -55,7 +53,7 @@
         </dependency>
 
         <!-- RESTEasy libraries -->
-        <!-- The version 3.0.4.Final doesn't work here -->
+        <!-- The version 3.0.4.Final doesn't work in JBoss 7.1.1 -->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jaxrs</artifactId>

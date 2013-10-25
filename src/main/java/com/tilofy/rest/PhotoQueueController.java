@@ -143,6 +143,9 @@ public class PhotoQueueController {
             return getErrorResponse("Not a valid URL");
         }
 
+        // TODO Figure out how to use Guice here.
+        // The problem is that in testing I cannot seem to test this function if it takes in the resizer
+        // with an @Inject
         Resizer resizer = new URLResizer();
         resizer.setTargetImage(url);
         resizer.setDimensions(targetWidth, targetHeight);
