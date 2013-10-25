@@ -6,10 +6,8 @@ import com.google.inject.name.Named;
 import com.tilofy.image.Resizer;
 
 import java.io.File;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.*;
 import java.util.Map;
-import java.util.concurrent.Executor;
-
 
 /**
  *  An in memory implementation of a Manager.  This should be treated as a Singleton class.  It uses Guice
@@ -20,17 +18,24 @@ import java.util.concurrent.Executor;
 public class ImageJobManager implements Manager {
     private File outputDirectory;
     private int currentJobID = 0;
+    // These maps keep track of all of the information about a job
     private ConcurrentHashMap<Integer, Status> jobMap = new ConcurrentHashMap<Integer, Status>();
     private ConcurrentHashMap<Integer, String> jobFailures = new ConcurrentHashMap<Integer, String>();
     private ConcurrentHashMap<Integer, File> jobFiles = new ConcurrentHashMap<Integer, File>();
-    private Executor executor;
+    private ExecutorService executor;
+    private TimeoutManager timeoutManager;
 
     @Inject
-    public ImageJobManager(@Named("Image Directory") File outputDirectory, @Named("Executor") Executor executor) {
+    public ImageJobManager(@Named("Image Directory") File outputDirectory,
+                           @Named("Executor") ExecutorService executor) {
         this.outputDirectory = outputDirectory;
         this.executor = executor;
         if (!outputDirectory.exists() || !outputDirectory.isDirectory())
             outputDirectory.mkdirs();
+    }
+
+    public void setTimeoutManager(TimeoutManager timeoutManager) {
+        this.timeoutManager = timeoutManager;
     }
 
     @Override
@@ -50,8 +55,13 @@ public class ImageJobManager implements Manager {
         int jobID = currentJobID;
         currentJobID++;
         resizer.setJobID(jobID);
-        if (executor != null)
-            executor.execute(resizer);
+        if (executor != null) {
+            Future job = executor.submit(resizer);
+            if (timeoutManager == null)
+                updateStatus(jobID, Status.IN_PROGRESS);
+            else
+                timeoutManager.setInProgress(jobID, job);
+        }
         updateStatus(jobID, Status.IN_PROGRESS);
         return jobID;
     }
@@ -66,6 +76,8 @@ public class ImageJobManager implements Manager {
     @Override
     public void updateStatus(int jobID, Status status) {
         jobMap.put(jobID, status);
+        if (timeoutManager != null && (status == Status.FAILED || status == Status.COMPLETED || status == Status.TIMED_OUT))
+            timeoutManager.cleanUpJob(jobID);
     }
 
     @Override
@@ -79,6 +91,8 @@ public class ImageJobManager implements Manager {
     public void setError(int jobID, String error) {
         jobFailures.put(jobID, error);
         jobMap.put(jobID, Status.FAILED);
+        if (timeoutManager != null)
+            timeoutManager.cleanUpJob(jobID);
     }
 
     @Override
@@ -95,5 +109,7 @@ public class ImageJobManager implements Manager {
     public void setOutputFile(int jobID, File file) {
         jobFiles.put(jobID, file);
         jobMap.put(jobID, Status.COMPLETED);
+        if (timeoutManager != null)
+            timeoutManager.cleanUpJob(jobID);
     }
 }

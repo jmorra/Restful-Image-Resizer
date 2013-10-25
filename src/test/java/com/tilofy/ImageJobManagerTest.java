@@ -5,6 +5,7 @@ import com.tilofy.image.ResizerFactory;
 import com.tilofy.manager.ImageJobManager;
 import com.tilofy.manager.Manager;
 import com.tilofy.manager.Status;
+import com.tilofy.manager.TimeoutManager;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,7 +20,10 @@ public class ImageJobManagerTest {
     Resizer resizer;
     @Before
     public void setup() {
+        TimeoutManager timeoutManager = new TimeoutManager(30000);
         manager = new ImageJobManager(new File("test"), null);
+        timeoutManager.setManager(manager);
+        manager.setTimeoutManager(timeoutManager);
         resizer = ResizerFactory.getURLResizer(null, 0, 0, manager);
     }
 

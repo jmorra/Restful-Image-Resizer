@@ -5,6 +5,7 @@ import com.tilofy.image.ResizerFactory;
 import com.tilofy.manager.ImageJobManager;
 import com.tilofy.manager.Manager;
 import com.tilofy.manager.Status;
+import com.tilofy.manager.TimeoutManager;
 import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
@@ -29,7 +30,10 @@ public class URLResizerTest {
     @Before
     public void setup() {
         resultDirectory = new File("test");
+        TimeoutManager timeoutManager = new TimeoutManager(30000);
         manager = new ImageJobManager(resultDirectory, Executors.newFixedThreadPool(1));
+        timeoutManager.setManager(manager);
+        manager.setTimeoutManager(timeoutManager);
     }
 
     @After
@@ -91,6 +95,28 @@ public class URLResizerTest {
         Assert.assertEquals(manager.getStatus(jobID), Status.COMPLETED);
         resultFile = new File("test" + File.separator + jobID + ".jpeg");
         Assert.assertTrue(resultFile.exists());
+    }
+
+    @Test
+    public void testTimeout() throws Exception {
+        TimeoutManager timeoutManager = new TimeoutManager(0);
+        timeoutManager.setManager(manager);
+        manager.setTimeoutManager(timeoutManager);
+        try {
+            url = new URL("http://upload.wikimedia.org/wikipedia/commons/2/23/Lake_mapourika_NZ.jpeg");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Here we're trying to make a job that will take more than 1 second so we can see the timeout working
+        Resizer resizer = ResizerFactory.getURLResizer(url, 1000000000, 1000000000, manager);
+
+        int jobID = manager.submitJob(resizer);
+
+        waitForResizing(jobID);
+
+        Assert.assertEquals(manager.getStatus(jobID), Status.TIMED_OUT);
     }
 
     private void waitForResizing(int jobID) {

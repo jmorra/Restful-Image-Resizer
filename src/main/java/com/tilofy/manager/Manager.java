@@ -9,6 +9,12 @@ import com.tilofy.image.Resizer;
  */
 public interface Manager {
     /**
+     * Sets the timeout manager
+     * @param timeoutManager The TimeoutManager
+     */
+    public void setTimeoutManager(TimeoutManager timeoutManager);
+
+    /**
      * Submits the supplied resizer job and returns the status.  This method should return immediately.
      * @param resizer A resizer to do the resizing
      * @return The job ID
