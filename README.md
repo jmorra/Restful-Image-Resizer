@@ -11,6 +11,8 @@ using the following libraries
 * ImgScalr
 * Maven
 
+This project was made using IntelliJ and as such, that IDE will probably be easiest to make edits to the project with.
+
 ## Build Instructions
 In order to build the project, navigate to the project directory and type `mvn clean verify` (this assumes `mvn` is
 on your path).  This will also run the full test suite included.
