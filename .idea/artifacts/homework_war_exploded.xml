@@ -8,6 +8,7 @@
           <element id="module-output" name="homework" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
           <element id="library" level="project" name="Maven: com.google.guava:guava:14.0.1" />
@@ -15,8 +16,8 @@
           <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
           <element id="library" level="project" name="Maven: org.imgscalr:imgscalr-lib:4.2" />
-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-guice:3.0.4.Final" />
-          <element id="library" level="project" name="Maven: javax.annotation:jsr250-api:1.0" />
+          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-guice:2.3.2.Final" />
+          <element id="library" level="project" name="Maven: com.google.code.guice:guice:2.0" />
         </element>
       </element>
     </root>

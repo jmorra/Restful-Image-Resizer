@@ -54,4 +54,18 @@ public interface Manager {
      * @return A map of all jobs and their statuses
      */
     public Map<Integer, Status> getAllJobs();
+
+    /**
+     * Returns the file that the supplied job ID corresponds to, if it's done.
+     * @param jobID The job ID in question
+     * @return The file for the image, or null if the job isn't finished
+     */
+    public File getOutputFile(int jobID);
+
+    /**
+     * Sets the supplied jobID's output file.  This will also set the status to completed.
+     * @param jobID The job ID in question
+     * @param file The file for the jobID
+     */
+    public void setOutputFile(int jobID, File file);
 }

@@ -1,6 +1,7 @@
 package com.tilofy.manager;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import com.tilofy.image.Resizer;
 
@@ -15,11 +16,13 @@ import java.util.concurrent.Executor;
  *  to get it's dependencies.  It will keep track of status and errors with ConcurrentHashMaps because
  *  multiple threads could access these objects at the same time.
  */
+@Singleton
 public class ImageJobManager implements Manager {
     private File outputDirectory;
     private int currentJobID = 0;
     private ConcurrentHashMap<Integer, Status> jobMap = new ConcurrentHashMap<Integer, Status>();
     private ConcurrentHashMap<Integer, String> jobFailures = new ConcurrentHashMap<Integer, String>();
+    private ConcurrentHashMap<Integer, File> jobFiles = new ConcurrentHashMap<Integer, File>();
     private Executor executor;
 
     @Inject
@@ -81,5 +84,16 @@ public class ImageJobManager implements Manager {
     @Override
     public Map<Integer, Status> getAllJobs() {
         return jobMap;
+    }
+
+    @Override
+    public File getOutputFile(int jobID) {
+        return jobFiles.get(jobID);
+    }
+
+    @Override
+    public void setOutputFile(int jobID, File file) {
+        jobFiles.put(jobID, file);
+        jobMap.put(jobID, Status.COMPLETED);
     }
 }

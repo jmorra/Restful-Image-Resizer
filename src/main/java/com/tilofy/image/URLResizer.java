@@ -1,7 +1,6 @@
 package com.tilofy.image;
 
 import com.google.common.io.Files;
-import com.tilofy.manager.Status;
 import org.imgscalr.Scalr;
 
 import javax.imageio.ImageIO;
@@ -47,7 +46,7 @@ public class URLResizer extends Resizer {
                 File output = new File(manager.getOutputDirectory() + File.separator + jobID + "." + format);
                 BufferedImage resizedImage = Scalr.resize(image, targetWidth, targetHeight);
                 ImageIO.write(resizedImage, format, output);
-                manager.updateStatus(jobID, Status.COMPLETED);
+                manager.setOutputFile(jobID, output);
             }
         }
         catch (IOException e) {

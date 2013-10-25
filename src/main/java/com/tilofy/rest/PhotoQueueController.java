@@ -1,6 +1,9 @@
 package com.tilofy.rest;
 
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
 import com.google.inject.Inject;
@@ -9,6 +12,9 @@ import com.tilofy.image.Resizer;
 import com.tilofy.json.JSONStatus;
 import com.tilofy.manager.Manager;
 import org.codehaus.jackson.map.ObjectMapper;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.net.URL;
 import com.tilofy.manager.Status;
 
@@ -34,6 +40,7 @@ public class PhotoQueueController {
      * @return Response
      */
     @GET
+    @Produces("application/json")
     public Response index() {
         String json = "JSON Parse Error";
         try {
@@ -55,14 +62,43 @@ public class PhotoQueueController {
      */
     @GET
     @Path("{job_id}")
-    public Response show(@PathParam("job_id") int jobID) {
+    @Produces("application/json")
+    public Response show(@PathParam("job_id") int jobID, @Context HttpServletRequest req) {
         JSONStatus jsonStatus = new JSONStatus();
         jsonStatus.jobID = jobID;
         Status status = manager.getStatus(jobID);
         jsonStatus.status = status.toString();
         if (status == Status.FAILED)
             jsonStatus.statusError = manager.getError(jobID);
+        else if (status == Status.COMPLETED)
+            jsonStatus.imageURL = req.getRequestURL().toString() + ".jpg";
         return getResponse(jsonStatus);
+    }
+
+    /**
+     * The show method for a jobID to show an image that has finished.
+     * @param jobID The job ID for the image you wish to render
+     * @return A byte array that represents the image
+     */
+    @GET
+    @Path("{job_id}.jpg")
+    @Produces("image/jpg")
+    public byte[] show(@PathParam("job_id") int jobID) {
+        File imageFile = manager.getOutputFile(jobID);
+        if (imageFile == null || !imageFile.exists())
+            return null;
+
+        // This was lifted from
+        // http://stackoverflow.com/questions/10163219/raw-image-in-resteasy
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(ImageIO.read(imageFile), "jpg", bo);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return bo.toByteArray();
     }
 
     /**
@@ -72,8 +108,9 @@ public class PhotoQueueController {
      * @param size The new size
      * @return The Resteasy Response
      */
-    @PUT
-    public Response create(@QueryParam("url") String urlString, @QueryParam("size") String size) {
+    @POST
+    @Produces("application/json")
+    public Response create(@QueryParam("url") String urlString, @QueryParam("size") String size, @Context HttpServletRequest req) {
         if (urlString == null || urlString.isEmpty())
             return getErrorResponse("Must supply URL");
         if  (size == null || size.isEmpty())
@@ -107,7 +144,7 @@ public class PhotoQueueController {
         // TODO Figure out how to use Guice here
         Resizer resizer = ResizerFactory.getURLResizer(url, targetWidth, targetHeight, manager);
         int jobID = manager.submitJob(resizer);
-        return show(jobID);
+        return show(jobID, req);
     }
 
     /**

@@ -8,4 +8,5 @@ public class JSONStatus {
     public int jobID;
     public String status;
     public String statusError;
+    public String imageURL;
 }
