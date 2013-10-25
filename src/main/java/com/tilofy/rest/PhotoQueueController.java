@@ -8,6 +8,7 @@ import javax.ws.rs.core.Response;
 
 import com.google.inject.Inject;
 import com.tilofy.image.Resizer;
+import com.tilofy.image.URLResizer;
 import com.tilofy.json.JSONStatus;
 import com.tilofy.manager.Manager;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -29,7 +30,7 @@ public class PhotoQueueController {
     private Manager manager;
 
     @Inject
-    public PhotoQueueController(Manager manager) {
+    public void setManager(Manager manager) {
         this.manager = manager;
     }
 
@@ -69,7 +70,7 @@ public class PhotoQueueController {
         jsonStatus.status = status.toString();
         if (status == Status.FAILED)
             jsonStatus.statusError = manager.getError(jobID);
-        else if (status == Status.COMPLETED)
+        else if (status == Status.COMPLETED && req != null)
             jsonStatus.imageURL = req.getRequestURL().toString() + ".jpg";
         return getResponse(jsonStatus);
     }
@@ -107,13 +108,11 @@ public class PhotoQueueController {
      * @param size The new size
      * @return The Resteasy Response
      */
-    @Inject
     @POST
     @Produces("application/json")
     public Response create(@QueryParam("url") String urlString,
                            @QueryParam("size") String size,
-                           @Context HttpServletRequest req,
-                           Resizer resizer) {
+                           @Context HttpServletRequest req) {
         if (urlString == null || urlString.isEmpty())
             return getErrorResponse("Must supply URL");
         if  (size == null || size.isEmpty())
@@ -121,7 +120,7 @@ public class PhotoQueueController {
 
         String[] split = size.split("x");
         if (split.length != 2)
-            return getErrorResponse("Size must be of the format <integer>x<integer>");
+            return getErrorResponse("Size must be of the format [integer]x[integer]");
 
         int targetWidth, targetHeight;
         try {
@@ -129,7 +128,7 @@ public class PhotoQueueController {
             targetHeight = Integer.parseInt(split[1]);
         }
         catch (Exception e) {
-            return getErrorResponse("Size must be of the format <integer>x<integer>");
+            return getErrorResponse("Size must be of the format [integer]x[integer]");
         }
 
         if (targetHeight < 1 || targetWidth < 1)
@@ -144,6 +143,7 @@ public class PhotoQueueController {
             return getErrorResponse("Not a valid URL");
         }
 
+        Resizer resizer = new URLResizer();
         resizer.setTargetImage(url);
         resizer.setDimensions(targetWidth, targetHeight);
         int jobID = manager.submitJob(resizer);

@@ -34,6 +34,7 @@ public class ImageJobManager implements Manager {
             outputDirectory.mkdirs();
     }
 
+    @Inject
     public void setTimeoutManager(TimeoutManager timeoutManager) {
         this.timeoutManager = timeoutManager;
     }

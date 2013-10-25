@@ -61,7 +61,7 @@ public class URLResizerTest {
         resizer.setTargetImage(url);
 
         int jobID = manager.submitJob(resizer);
-        waitForResizing(jobID);
+        waitForResizing(jobID, manager);
         Assert.assertEquals(manager.getStatus(jobID), Status.FAILED);
         Assert.assertEquals(manager.getError(jobID), "Can't get input stream from URL!");
     }
@@ -77,7 +77,7 @@ public class URLResizerTest {
         resizer.setTargetImage(url);
 
         int jobID = manager.submitJob(resizer);
-        waitForResizing(jobID);
+        waitForResizing(jobID, manager);
         Assert.assertEquals(manager.getStatus(jobID), Status.FAILED);
         Assert.assertEquals(manager.getError(jobID), "URL does not represent an image");
     }
@@ -90,11 +90,12 @@ public class URLResizerTest {
         catch (Exception e) {
             e.printStackTrace();
         }
+        resizer.setDimensions(10, 10);
         resizer.setTargetImage(url);
 
         int jobID = manager.submitJob(resizer);
 
-        waitForResizing(jobID);
+        waitForResizing(jobID, manager);
 
         Assert.assertEquals(manager.getStatus(jobID), Status.COMPLETED);
         resultFile = new File("test" + File.separator + jobID + ".jpeg");
@@ -118,12 +119,12 @@ public class URLResizerTest {
 
         int jobID = manager.submitJob(resizer);
 
-        waitForResizing(jobID);
+        waitForResizing(jobID, manager);
 
         Assert.assertEquals(manager.getStatus(jobID), Status.TIMED_OUT);
     }
 
-    private void waitForResizing(int jobID) {
+    public static void waitForResizing(int jobID, Manager manager) {
         // Let's fail after 100 seconds
         // TODO Replace this with a better waiting mechanism
         for (int i=0; i<100 && manager.getStatus(jobID) == Status.IN_PROGRESS; ++i) {
