@@ -35,4 +35,3 @@ new size.  The user then gets a job ID for reference.  At some point in the futu
 using either the show page to get the status, or, if the job is finished, the show.jpg page to see the result.  At
 any time, the user can navigate to the index to check the status of all their jobs.
 
-
